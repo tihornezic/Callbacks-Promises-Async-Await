@@ -87,5 +87,5 @@ console.log("Finish")
 } */
 
 // but this way of handling those error would be super complicated
-// SO, we can use PROMISES which simplifies everything for us:  open promise.js
+// SO, we can use PROMISES which simplifies everything for us:  open app_refactored.jss
 

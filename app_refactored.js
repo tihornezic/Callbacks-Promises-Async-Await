@@ -69,6 +69,7 @@ function videoDetails(video) {
 // title of the video
 
 
+
 // wouldn't it be nice to do the promises call this way (the synchronous style, normal way):
 // even though the above one is nice, but this is the nicest...
 //      const user = loginUser('ed', 'bumba')
@@ -81,7 +82,9 @@ function videoDetails(video) {
 
 async function displayUser(){
     const loggedUser = await loginUser('ed', 1234)
+    console.log(loggedUser)
     const videos = await getUserVideos(loggedUser.userEmail)
+    console.log(videos)
     const detail = await videoDetails(videos[0])
     console.log(detail)
 }
@@ -90,3 +93,10 @@ displayUser()
 
 console.log("Finish")
 
+// output:
+// Start
+// Finish
+// Now we have the data
+// { userEmail: 'tnezic@goomail.com' }
+// [ 'video1', 'video2', 'video3' ]
+// title of the video
