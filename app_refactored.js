@@ -98,6 +98,7 @@ const fb = new Promise(resolve => {
     }, 2000)
 })
 
+// meant to start executing more asynchronous code at the same time (or almost at the same time)
 // both start running at the same time
 Promise.all([yt, fb])
 .then(result => console.log(result))
