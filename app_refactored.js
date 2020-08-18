@@ -79,7 +79,9 @@ console.log("Finish")
 // so here is example of that; adding async await to simplify and make the code above nicer
 // so again, it doesn't change anything in the background; it's just easier and cleaner syntax:
 
-
+function displayUser(){
+    const loginUser =  loginUser('ed', 1234)
+}
 
 
 
