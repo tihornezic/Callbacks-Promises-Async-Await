@@ -38,7 +38,7 @@ function videoDetails(video) {
 }) */
 
 
-loginUser('ed', 'bumba')
+/* loginUser('ed', 'bumba') */
     // old:
 
     /* .then(user => getUserVideos(user.email))
@@ -54,11 +54,11 @@ loginUser('ed', 'bumba')
 
     // here we have acces to the user
     // the then parameter () actually triggers or corresponds to or calls the resolve part of the promise
-    .then(user => (console.log(user), getUserVideos(user.email))
+    /* .then(user => (console.log(user), getUserVideos(user.email))
         .then(videos => (console.log(videos), videoDetails(videos[0]))
-            .then(detail => console.log(detail))))
+            .then(detail => console.log(detail)))) */
 
-console.log("Finish")
+// console.log("Finish")
 
 // so exactly the same output as using callbacks in app.js:
 // Start
@@ -74,19 +74,25 @@ console.log("Finish")
 //      const user = loginUser('ed', 'bumba')
 //      const videos = videoDetails(user.email)
 // ...and that way would be using async await
-// it is sytactical sugar; still uses promises, but nicer and easier way to write asynchronous code
+// it is sytactical sugar; still uses promises, but nicer and easier way to write asynchronous code in the synchronous style
 
 // so here is example of that; adding async await to simplify and make the code above nicer
 // so again, it doesn't change anything in the background; it's just easier and cleaner syntax:
 
-function displayUser(){
-    const loginUser =  loginUser('ed', 1234)
+async function displayUser(){
+    const loggedUser = await loginUser('ed', 1234)
+    const videos = await getUserVideos(loggedUser.userEmail)
+    const detail = await videoDetails(videos[0])
+    console.log(detail)
 }
 
+displayUser()
 
+console.log("Finish")
 
 // an example of a way of getting data at the same time:
-const yt = new Promise(resolve => {
+
+/* const yt = new Promise(resolve => {
     setTimeout(() => {
         console.log("getting stuff from youtube")
         resolve({videos: [1,2,3,4,5]})
@@ -98,9 +104,9 @@ const fb = new Promise(resolve => {
         console.log("stuff from fb")
         resolve({user: "Name"})
     }, 2000)
-})
+}) */
 
 // meant to start executing more asynchronous code at the same time (or almost at the same time)
 // both start running at the same time
-Promise.all([yt, fb])
-.then(result => console.log(result))
+/* Promise.all([yt, fb])
+.then(result => console.log(result)) */

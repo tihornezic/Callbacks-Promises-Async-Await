@@ -4,10 +4,10 @@
 // if we get the data back successfully then do something with it
 // if not, diplay error msg or do something with it
 const promise = new Promise((resolve, reject) => {
-    setTimeout(() =>{
+    setTimeout(() => {
         // if you successfully got the data back for e.g. an api
         console.log("got the user")
-        resolve({user: "ed"})
+        resolve({ user: "ed" })
         // new Error() is a good practice
         reject(new Error("user not logged in"))
     }, 2000)
